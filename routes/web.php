@@ -14,11 +14,6 @@ use App\Http\Controllers\TaskController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/{any}', function () {
     return view('home');
-});
-
-Route::apiResources([
-    'statuses'  =>  StatusController::class,
-    'tasks'     =>  TaskController::class,
-]);
+})->where('any', '^(?!api).*$');

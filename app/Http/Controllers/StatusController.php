@@ -62,6 +62,7 @@ class StatusController extends Controller
      */
     public function update(StatusRequest $request, Status $status)
     {
+        dd($request->all());
         $status->update($request->validated());
 
         return response()->json([

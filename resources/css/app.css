@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -11,89 +10,139 @@ body {
     color: #333;
 }
 
-.container {
-    max-width: 1200px; /* largura máxima para grandes telas */
-    margin: 0 auto; /* centraliza o conteúdo */
-    padding: 20px;
+.app-container {
+    background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+    height: 100vh;
+    color: #e0e0e0;
 }
 
-/* Estilos para o card */
-.card {
-    margin-top: 20px;
-    border: 1px solid #dee2e6;
+.card, .list-group-item, .main-table th, .main-table tr {
+    background-color: rgba(37, 37, 37, 0.8);
     border-radius: 0.25rem;
+    transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.card {
+    margin-top: 20px;
+    border: 1px solid #dee2e6;
+}
+
 .card-header {
-    background-color: #007bff; /* azul primário */
-    color: white;
+    background-color: #0056b3;
+    color: #ffffff;
     padding: 10px;
     border-bottom: 1px solid #007bff;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
 }
 
-/* Estilos para o corpo do card */
 .card-body {
     padding: 20px;
 }
 
-/* Lista de links */
+.card:hover, .list-group-item:hover, .action-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+}
+
 .list-group {
     margin-top: 20px;
 }
 
 .list-group-item {
-    background-color: #ffffff; /* fundo branco */
+    background-color: #ffffff;
     border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
+    padding: 15px;
     margin-bottom: 10px;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    padding: 15px; /* adicionando padding para melhor espaçamento */
-}
-
-.list-group-item:hover {
-    background-color: #e9ecef; /* cor de fundo ao passar o mouse */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* leve sombra ao passar o mouse */
-}
-
-.list-group-item strong {
-    color: #007bff; /* cor para o texto em destaque */
+    color: #0056b3;
 }
 
 .text-muted {
-    color: #6c757d; /* texto secundário */
+    color: #6c757d;
 }
 
-/* Estilos adicionais */
 .alert {
     padding: 10px;
     margin-top: 20px;
     border-radius: 0.25rem;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .container {
-        padding: 10px; /* padding reduzido em telas menores */
+        padding: 10px;
     }
-
     .card {
-        margin-top: 10px; /* margem reduzida para cards em telas menores */
+        margin-top: 10px;
     }
 }
 
-/* Estilos para os cartões */
-.card {
-    transition: transform 0.2s, box-shadow 0.2s;
+.btn, .btn-first {
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    padding: 10px 15px;
+    border: none;
+    font-size: 16px;
+    margin: 0 5px;
 }
 
-.card:hover {
+.btn-left {
+    float: right;
+    padding: 10px 16px;
+    margin-bottom: 10px !important;
+}
+
+.btn:hover, .btn-first:hover {
+    /*background-color: #007BFF;*/
+    filter: brightness(1.2);
     transform: scale(1.05);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.btn {
-    width: 100%; /* Botões ocupam toda a largura do cartão */
+.main-table {
+    width: 100%;
+    margin-top: 40px;
+    border-collapse: collapse;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+.main-table th {
+    color: #0056b3;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-table td, .main-table th {
+    padding: 15px;
+    text-align: left;
+}
+
+.main-table tr:hover {
+    background-color: rgba(63, 63, 63, 0.8);
+}
+
+.actions {
+    text-align: center;
+}
+
+.edit-button {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    background-color: #F44336;
+}
+
+.lead {
+    font-size: 1.5rem;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.margin-top-10{
+    margin-top: 10px;
 }

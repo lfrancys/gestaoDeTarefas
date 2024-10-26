@@ -9,11 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique(); // Ex: pending, completed, overdue
+            $table->string('name')->unique();
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -21,7 +22,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('statuses');
     }

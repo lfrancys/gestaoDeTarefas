@@ -1,7 +1,8 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../components/Home.vue';
-import Status from "../components/Status.vue";
+import StatusIndex from "../components/Status/StatusIndex.vue";
+import StatusForm from "../components/Status/StatusForm.vue";
 
 const routes = [
     {
@@ -11,8 +12,18 @@ const routes = [
     },
     {
         path: '/statuses',
-        name: 'Statuses',
-        component: Status,
+        name: 'StatusIndex',
+        component: StatusIndex
+    },
+    {
+        path: '/statuses/create',
+        name: 'StatusCreate',
+        component: StatusForm
+    },
+    {
+        path: '/statuses/edit/:id',
+        name: 'StatusEdit',
+        component: StatusForm
     },
 ];
 

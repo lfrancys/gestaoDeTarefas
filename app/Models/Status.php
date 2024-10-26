@@ -13,7 +13,8 @@ class Status extends Model
     protected $table = 'statuses';
 
     protected $fillable = [
-        'name'
+        'name',
+        'description'
     ];
 
        public function tasks(): HasMany
