@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Status;
 use Carbon\Carbon;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class StatusesTableSeeder extends Seeder
 {
@@ -14,7 +13,7 @@ class StatusesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('statuses')->insert([
+        $statuses = [
             [
                 'name' => 'in_progress',
                 'created_at' => Carbon::now(),
@@ -35,6 +34,10 @@ class StatusesTableSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
-        ]);
+        ];
+
+        foreach ($statuses as $status) {
+            Status::firstOrCreate($status);
+        }
     }
 }
