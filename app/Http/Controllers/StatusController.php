@@ -15,8 +15,10 @@ class StatusController extends Controller
     public function index()
     {
         $statuses = Status::all();
+
         return response()->json($statuses, Response::HTTP_OK);
     }
+
 
     /**
      * Show the form for creating a new resource.
