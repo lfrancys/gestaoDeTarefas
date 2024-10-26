@@ -1,0 +1,99 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px; /* largura máxima para grandes telas */
+    margin: 0 auto; /* centraliza o conteúdo */
+    padding: 20px;
+}
+
+/* Estilos para o card */
+.card {
+    margin-top: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #007bff; /* azul primário */
+    color: white;
+    padding: 10px;
+    border-bottom: 1px solid #007bff;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+/* Estilos para o corpo do card */
+.card-body {
+    padding: 20px;
+}
+
+/* Lista de links */
+.list-group {
+    margin-top: 20px;
+}
+
+.list-group-item {
+    background-color: #ffffff; /* fundo branco */
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    padding: 15px; /* adicionando padding para melhor espaçamento */
+}
+
+.list-group-item:hover {
+    background-color: #e9ecef; /* cor de fundo ao passar o mouse */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* leve sombra ao passar o mouse */
+}
+
+.list-group-item strong {
+    color: #007bff; /* cor para o texto em destaque */
+}
+
+.text-muted {
+    color: #6c757d; /* texto secundário */
+}
+
+/* Estilos adicionais */
+.alert {
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 0.25rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px; /* padding reduzido em telas menores */
+    }
+
+    .card {
+        margin-top: 10px; /* margem reduzida para cards em telas menores */
+    }
+}
+
+/* Estilos para os cartões */
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    width: 100%; /* Botões ocupam toda a largura do cartão */
+}

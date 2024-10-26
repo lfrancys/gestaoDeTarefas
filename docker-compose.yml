@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
     # Serviço do Laravel
@@ -44,6 +44,22 @@ services:
             - laravel_network
         depends_on:
             - app
+
+    node:
+        build:
+            context: .
+            dockerfile: Dockerfile.node
+        image: my-laravel-node
+        container_name: laravel_node
+        ports:
+            - "3001:3001"
+        restart: unless-stopped
+        working_dir: /var/www
+        volumes:
+            - ./:/var/www
+            - /var/www/node_modules
+        networks:
+            - laravel_network
 
 networks:
     laravel_network:
