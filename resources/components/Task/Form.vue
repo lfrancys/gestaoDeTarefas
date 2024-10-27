@@ -3,46 +3,39 @@
         <h1>{{ isEditMode ? 'Editar Tarefa' : 'Nova Tarefa' }}</h1>
         <div v-if="error" class="lead">{{ error }}</div>
         <form @submit.prevent="submitForm">
-            <div class="form-group">
-                <label for="title">Título:</label>
-                <input type="text" v-model="task.title" id="title" class="form-control" required />
-            </div>
             <div class="form-row">
-                <div class="form-group col-md-5">
-                    <label for="due_date">Data de Vencimento:</label>
-                    <input
-                        type="date"
-                        v-model="task.due_date"
-                        id="due_date"
-                        class="form-control form-control-sm"
-                        :min="today"
-                        required
-                    />
+                <div class="form-group col-md-7">
+                    <label for="title">Título:</label>
+                    <input type="text" v-model="task.title" id="title" class="form-control" required />
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label for="status_id">Status:</label>
-                    <select v-model="task.status_id" id="status_id" class="form-control" required>
+                    <select :disabled="selectDisabled" v-model="task.status_id" id="status_id" class="form-control" required>
                         <option v-for="status in statuses" :key="status.id" :value="status.id">
                             {{ status.description }}
                         </option>
                     </select>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="form-group col-md-12">
-                    <div class="form-group">
-                        <label for="user_id">Usuário:</label>
-                        <v-select
-                            v-model="task.user_id"
-                            :options="users"
-                            label="name"
-                            :filterable="true"
-                            placeholder="Selecione um usuário"
-                            id="user_id"
-                            class="form-control"
-                            required
-                        ></v-select>
-                    </div>
+            <div class="form-row">
+                <div class="form-group col-md-7">
+                    <label for="user_id">Usuário:</label>
+                    <select v-model="task.user_id" id="user_id" class="form-control" required>
+                        <option v-for="user in users" :key="user.id" :value="user.id">
+                            {{ user.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="due_date">Data de Vencimento:</label>
+                    <input
+                        type="date"
+                        v-model="task.due_date"
+                        id="due_date"
+                        class="form-control"
+                        :min="today"
+                        required
+                    />
                 </div>
             </div>
             <div class="form-group">
@@ -69,8 +62,11 @@ export default {
                 description: '',
                 due_date: '',
                 status_id: null,
+                user_id: null,
             },
             statuses: [],
+            users: [],
+            selectDisabled: false
         };
     },
     computed: {
@@ -84,6 +80,7 @@ export default {
     },
     mounted() {
         this.fetchStatuses();
+        this.fetchUsers();
         if (this.isEditMode) {
             this.fetchTask();
         }
@@ -95,7 +92,26 @@ export default {
                 if (!response.ok) {
                     throw new Error('Erro ao buscar status');
                 }
+
                 this.statuses = await response.json();
+
+                if (!this.isEditMode) {
+                    this.statuses = this.statuses.filter(status => status.name === 'pending');
+                    this.task.status_id = this.statuses.length > 0 ? this.statuses[0].id : null;
+                    this.selectDisabled = true;
+                }
+
+            } catch (err) {
+                this.error = err.message;
+            }
+        },
+        async fetchUsers() {
+            try {
+                const response = await fetch('/api/users');
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar os usuários');
+                }
+                this.users = await response.json();
             } catch (err) {
                 this.error = err.message;
             }
@@ -108,6 +124,9 @@ export default {
                     throw new Error('Erro ao buscar tarefa');
                 }
                 this.task = await response.json();
+
+                // Se houver status definido no banco, o id será selecionado automaticamente
+                console.log(this.task);
             } catch (err) {
                 this.error = err.message;
             } finally {
