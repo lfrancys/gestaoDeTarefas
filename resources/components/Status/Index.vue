@@ -1,14 +1,19 @@
 <template>
     <div class="status-container">
         <h1>Status do Sistema</h1>
+        <div class="d-flex justify-content-between mb-3">
+            <router-link to="/" class="btn btn-secondary">
+                <i class="fas fa-home"></i>
+            </router-link>
+            <router-link to="/statuses/create" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Novo
+            </router-link>
+        </div>
         <div v-if="loading" class="lead">Carregando...</div>
         <div v-else-if="error" class="lead">{{ error }}</div>
         <div v-else>
-            <router-link to="/statuses/create" class="btn-first edit-button btn-left">
-                <i class="fas fa-plus"></i> Novo
-            </router-link>
-
-            <table class="main-table">
+            <div v-if="statuses.length === 0" class="lead">Não há status cadastrados.</div>
+            <table class="main-table" v-else>
                 <thead>
                 <tr>
                     <th>Descrição</th>
@@ -39,6 +44,7 @@
 
 <script>
 export default {
+    name: "StatusIndex",
     data() {
         return {
             loading: true,
@@ -89,5 +95,9 @@ export default {
 .status-container {
     padding: 40px;
     text-align: center;
+}
+
+.back-button {
+    margin-bottom: 20px; /* Espaço abaixo do botão Voltar */
 }
 </style>

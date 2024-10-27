@@ -23,7 +23,7 @@
                 />
             </div>
             <div class="margin-top-10">
-                <button type="submit" class="btn btn-primary btn-left">{{ isEditMode ? 'Salvar Alterações' : 'Criar' }}</button>
+                <button type="submit" class="btn btn-primary btn-left">Salvar</button>
                 <button type="button" @click="cancel" class="btn btn-secondary btn-left">Cancelar</button>
             </div>
         </form>
@@ -34,6 +34,7 @@
 import axios from 'axios';
 
 export default {
+    name: "StatusForm",
     data() {
         return {
             status: {
@@ -62,6 +63,8 @@ export default {
         async saveStatus() {
             try {
                 if (this.isEditMode) {
+                    console.log(this.status);
+
                     const id = this.$route.params.id;
                     await axios.put(`/api/statuses/${id}`, this.status);
                 } else {

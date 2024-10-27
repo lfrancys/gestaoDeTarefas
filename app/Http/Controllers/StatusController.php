@@ -19,15 +19,6 @@ class StatusController extends Controller
         return response()->json($statuses, Response::HTTP_OK);
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('statuses.create');
-    }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -36,7 +27,7 @@ class StatusController extends Controller
         $status = Status::create($request->validated());
 
         return response()->json([
-            'message' => 'Status created successfully',
+            'message' => 'Status criado com sucesso',
             'data' => $status,
         ], Response::HTTP_CREATED);
     }
@@ -50,23 +41,14 @@ class StatusController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Status $status)
-    {
-        return view('statuses.edit', compact('status'));
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(StatusRequest $request, Status $status)
     {
-        dd($request->all());
         $status->update($request->validated());
 
         return response()->json([
-            'message' => 'Status updated successfully',
+            'message' => 'Status atualizado com sucesso',
             'data' => $status,
         ], Response::HTTP_OK);
     }
@@ -79,7 +61,7 @@ class StatusController extends Controller
         $status->delete();
 
         return response()->json([
-            'message' => 'Status deleted successfully',
+            'message' => 'Status apagado com sucesso',
         ], Response::HTTP_NO_CONTENT);
     }
 }

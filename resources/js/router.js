@@ -1,8 +1,10 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../components/Home.vue';
-import StatusIndex from "../components/Status/StatusIndex.vue";
-import StatusForm from "../components/Status/StatusForm.vue";
+import StatusIndex from "../components/Status/Index.vue";
+import StatusForm from "../components/Status/Form.vue";
+import TaskIndex from "../components/Task/Index.vue";
+import TaskForm from "../components/Task/Form.vue";
 
 const routes = [
     {
@@ -24,6 +26,21 @@ const routes = [
         path: '/statuses/edit/:id',
         name: 'StatusEdit',
         component: StatusForm
+    },
+    {
+        path: '/tasks',
+        name: 'TaskIndex',
+        component: TaskIndex
+    },
+    {
+        path: '/tasks/create',
+        name: 'TaskCreate',
+        component: TaskForm
+    },
+    {
+        path: '/tasks/edit/:id',
+        name: 'TaskEdit',
+        component: TaskForm
     },
 ];
 

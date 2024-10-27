@@ -26,22 +26,22 @@ export default {
                     title: 'Gerenciar Tarefas',
                     description: 'Visualizar, criar, editar e excluir suas tarefas.',
                     buttonText: 'Tarefas',
-                    route: '/tarefas',
-                    icon: '📝', // Ícone para o card
+                    route: '/tasks',
+                    icon: '📝',
                 },
                 {
                     title: 'Gerenciar Status',
                     description: 'Organize os status das suas tarefas facilmente.',
                     buttonText: 'Status',
                     route: '/statuses',
-                    icon: '🚦', // Ícone para o card
+                    icon: '🚦',
                 },
                 {
                     title: 'Relatórios',
                     description: 'Visualize relatórios sobre suas tarefas e desempenho.',
                     buttonText: 'Relatórios',
                     route: '/relatorios',
-                    icon: '📊', // Ícone para o card
+                    icon: '📊',
                 },
             ],
         };
@@ -64,34 +64,34 @@ export default {
 }
 
 .card {
-    background-color: rgba(37, 37, 37, 0.8); /* Fundo semi-transparente */
+    background-color: rgba(37, 37, 37, 0.8);
     border-radius: 10px;
     padding: 30px;
     margin: 10px;
     width: 300px;
     color: #ffffff;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra sutil */
-    transition: transform 0.2s; /* Animação de transformação */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Levanta o card ao passar o mouse */
+    transform: translateY(-5px);
 }
 
 .icon {
-    font-size: 2.5rem; /* Tamanho do ícone */
-    margin-bottom: 15px; /* Espaço abaixo do ícone */
-    color: #f39c12; /* Cor do ícone */
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #f39c12;
 }
 
 .title {
-    font-size: 1.75rem; /* Tamanho do título */
-    font-weight: 700; /* Aumenta o peso da fonte */
+    font-size: 1.75rem;
+    font-weight: 700;
 }
 
 .details {
-    color: #d3d3d3; /* Cor do texto mais clara para contraste */
+    color: #d3d3d3;
     margin-top: 10px;
 }
 
@@ -112,23 +112,22 @@ export default {
 
 .btn:hover {
     background-color: #007BFF;
-    transform: scale(1.05); /* Efeito de aumento no botão */
+    transform: scale(1.05);
 }
 
 .lead {
-    font-size: 1.5rem; /* Tamanho do texto */
+    font-size: 1.5rem;
     color: #e0e0e0;
-    margin-bottom: 30px; /* Aumenta o espaço abaixo do parágrafo */
+    margin-bottom: 30px;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .cards-container {
-        flex-direction: column; /* Alinha os cards em coluna em telas menores */
-        align-items: center; /* Centraliza os cards */
+        flex-direction: column;
+        align-items: center;
     }
     .card {
-        width: 90%; /* Aumenta a largura em telas menores */
+        width: 90%;
     }
 }
 </style>

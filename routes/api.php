@@ -20,7 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResources([
-    'statuses'  =>  StatusController::class,
-    'tasks'     =>  TaskController::class,
-]);
+Route::apiResource('statuses', StatusController::class)->except(['create', 'edit']);
+Route::apiResource('tasks', TaskController::class)->except(['create', 'edit']);

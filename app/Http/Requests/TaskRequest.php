@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class StatusRequest extends FormRequest
+class TaskRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,16 +21,12 @@ class StatusRequest extends FormRequest
      */
     public function rules(): array
     {
-        $statusId = $this->route('status') ? $this->route('status')->id : null;
-
         return [
-            'name' => [
-                'required',
-                'string',
-                'max:255',
-                Rule::unique('statuses')->ignore($statusId, 'id'),
-            ],
-            'description' => 'required|string',
+            'user_id' => 'required|exists:users,id',
+            'status_id' => 'required|exists:statuses,id',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'due_date' => 'required|date',
         ];
     }
 }
