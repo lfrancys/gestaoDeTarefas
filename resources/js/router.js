@@ -5,6 +5,8 @@ import StatusIndex from "../components/Status/Index.vue";
 import StatusForm from "../components/Status/Form.vue";
 import TaskIndex from "../components/Task/Index.vue";
 import TaskForm from "../components/Task/Form.vue";
+import UserIndex from '../components/User/Index.vue';
+import UserForm from '../components/User/Form.vue';
 
 const routes = [
     {
@@ -41,6 +43,21 @@ const routes = [
         path: '/tasks/edit/:id',
         name: 'TaskEdit',
         component: TaskForm
+    },
+    {
+        path: '/users',
+        name: 'UserIndex',
+        component: UserIndex,
+    },
+    {
+        path: '/users/create',
+        name: 'UserCreate',
+        component: UserForm,
+    },
+    {
+        path: '/users/edit/:id',
+        name: 'UserEdit',
+        component: UserForm,
     },
 ];
 

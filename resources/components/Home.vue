@@ -23,26 +23,33 @@ export default {
         return {
             links: [
                 {
-                    title: 'Gerenciar Tarefas',
+                    title: 'Tarefas',
                     description: 'Visualizar, criar, editar e excluir suas tarefas.',
                     buttonText: 'Tarefas',
                     route: '/tasks',
                     icon: '📝',
                 },
                 {
-                    title: 'Gerenciar Status',
+                    title: 'Status',
                     description: 'Organize os status das suas tarefas facilmente.',
                     buttonText: 'Status',
                     route: '/statuses',
                     icon: '🚦',
                 },
                 {
-                    title: 'Relatórios',
-                    description: 'Visualize relatórios sobre suas tarefas e desempenho.',
-                    buttonText: 'Relatórios',
-                    route: '/relatorios',
-                    icon: '📊',
+                    title: 'Usuários',
+                    description: 'Visualizar, criar, editar e excluir os usuários.',
+                    buttonText: 'Usuários',
+                    route: '/users',
+                    icon: '🧑',
                 },
+                // {
+                //     title: 'Relatórios',
+                //     description: 'Visualize relatórios sobre suas tarefas e desempenho.',
+                //     buttonText: 'Relatórios',
+                //     route: '/relatorios',
+                //     icon: '📊',
+                // },
             ],
         };
     },

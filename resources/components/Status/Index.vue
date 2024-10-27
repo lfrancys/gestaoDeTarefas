@@ -6,7 +6,7 @@
                 <i class="fas fa-home"></i>
             </router-link>
             <router-link to="/statuses/create" class="btn btn-primary">
-                <i class="fas fa-plus"></i> Novo
+                <i class="fas fa-plus"></i> Adicionar
             </router-link>
         </div>
         <div v-if="loading" class="lead">Carregando...</div>

@@ -133,6 +133,9 @@ export default {
                 this.error = err.message;
             }
         },
+        cancel() {
+            this.$router.push('/tasks');
+        },
     },
 };
 </script>

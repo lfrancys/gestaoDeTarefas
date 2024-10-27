@@ -76,7 +76,7 @@ export default {
             }
         },
         cancel() {
-            this.$router.push({ name: 'StatusIndex' });
+            this.$router.push('/statuses');
         },
     },
 };
